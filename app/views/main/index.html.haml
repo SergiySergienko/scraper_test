@@ -1,0 +1,10 @@
+%h1
+  = t(:title)
+%div
+  = form_for @product do |f|
+    .form-group
+      %label
+        = t(:product_url)
+      = f.text_field :source_url, class: 'form-control'
+    = f.submit t(:parse), {class: 'btn btn-primary btn-lg'}
+

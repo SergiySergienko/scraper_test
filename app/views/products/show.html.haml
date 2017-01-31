@@ -1,0 +1,19 @@
+%p#notice= notice
+
+
+%h3
+  = @product.name
+%span
+  = @product.source_url
+
+%hr
+.container
+  %h3
+    Reviews
+  %div
+    - @product.product_reviews.each do |review|
+      = render partial: 'review', locals: { review: review }
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', products_path

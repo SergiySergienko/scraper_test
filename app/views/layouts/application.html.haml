@@ -1,0 +1,24 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")
+    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= content_for?(:title) ? yield(:title) : "Scraper"
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+
+  %body
+    .navbar.navbar-default.navbar-static-top
+      .container
+        %a.navbar-brand(href="/") Main
+        = link_to t(:products), products_path, { class: 'navbar-brand' }
+
+    .container
+      .row
+        .col-lg-12
+          = yield
+
+      %footer
+        %p Footer text
